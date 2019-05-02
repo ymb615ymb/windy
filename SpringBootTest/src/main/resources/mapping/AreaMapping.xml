@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymb.windy.datasource2.mapper.AreaMapping">
+
+	<resultMap id="areaResultMap" type="com.ymb.windy.datasource2.entity.Area">
+		<id column="area_id" property="areaId" jdbcType="INTEGER" />
+		<result column="area_name" property="areaName" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<insert id="saveArea" parameterType="com.ymb.windy.datasource2.entity.Area">
+		INSERT INTO AREA VALUES(#{areaId},#{areaName})
+	</insert>
+
+	<select id="queryAllArea" resultMap="areaResultMap">
+		SELECT * FROM AREA
+	</select>
+
+</mapper>

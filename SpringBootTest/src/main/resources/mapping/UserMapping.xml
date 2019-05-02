@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymb.windy.datasource1.mapper.UserMapping">
+
+	<resultMap id="userResultMap" type="com.ymb.windy.datasource1.entity.User">
+		<id column="user_id" property="userId" jdbcType="INTEGER" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="queryAllUser" resultMap="userResultMap">
+		SELECT * FROM USER
+	</select>
+
+	<insert id="saveUser" parameterType="com.ymb.windy.datasource1.entity.User">
+		INSERT INTO USER  VALUES(#{userId}, #{userName})
+	</insert>
+</mapper>
